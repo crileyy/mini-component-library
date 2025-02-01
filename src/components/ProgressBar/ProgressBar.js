@@ -27,6 +27,7 @@ const ProgressBar = ({ value, size }) => {
       aria-valuemax={100}
       aria-valuemin={0}
     >
+      <VisuallyHidden>{value}</VisuallyHidden>
       <ProgressBarValue value={value} style={{ '--progress-width': value + '%' }} />
     </ProgressBarWrapper>);
 };
@@ -35,7 +36,7 @@ const SmallProgressBarValue = styled.div`
   width: var(--progress-width);
   height: 8px;
   background-color: ${COLORS.primary};
-  border-radius: ${p => '4px ' + (4 * p.value/100) + 'px ' + (4 * p.value/100) + 'px ' + '4px'};
+  border-radius: 4px 0 0 4px;
 `
 
 const SmallProgressBarWrapper = styled.div`
@@ -43,8 +44,7 @@ const SmallProgressBarWrapper = styled.div`
   background-color: ${COLORS.transparentGray15};
   border-radius: 4px;
   height: 8px;
-  width: 370px;
-  max-width: 370px;
+  overflow: hidden;
 `;
 
 const MediumProgressBarValue = styled(SmallProgressBarValue)`
