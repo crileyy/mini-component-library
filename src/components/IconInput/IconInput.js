@@ -6,18 +6,20 @@ import { COLORS } from '../../constants';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
-const sizes = {
+const STYLES = {
   small: {
     '--icon-size': '16px',
     'font-size': '14px',
     '--icon-bottom': '4px',
     '--wrapper-height': '24px',
+    '--underline': '1px',
   },
   large: {
     '--icon-size': '24px',
     'font-size': '18px',
     '--icon-bottom': '6px',
     '--wrapper-height': '36px',
+    '--underline': '2px',
   },
 }
 
@@ -28,7 +30,7 @@ const IconInput = ({
   size,
   placeholder,
 }) => {
-  const sizeStyle = sizes[size];
+  const sizeStyle = STYLES[size];
 
   return (
     <>
@@ -76,7 +78,7 @@ const StyledInput = styled.input`
 
 const Wrapper = styled.div`
   width: var(--width);
-  border-bottom: 1px solid ${COLORS.black};
+  border-bottom: var(--underline) solid ${COLORS.black};
   position: relative;
   height: var(--wrapper-height);
   
